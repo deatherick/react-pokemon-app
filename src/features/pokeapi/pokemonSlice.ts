@@ -2,12 +2,24 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import { getRandomPokemonAsync } from '@services/pokemon'
 import { getRandomItemAsync } from '@services/item'
 import { getRandomBerryAsync } from '@services/berry'
+import { RootState } from '@/app/store'
 
 const POKEMON_IMAGE_URL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world`
 const ITEM_IMAGE_URL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/dream-world`
 const BERRY_IMAGE_URL = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/berries`
 
-const initialState = {
+// Define a type for the slice state
+interface PokeAPIState {
+  value: any
+  name: string
+  description: string
+  imageUrl: string
+  status: string
+  isLoaded: boolean
+  errorMessage: string | null
+}
+
+const initialState : PokeAPIState = {
   value: null,
   name: '',
   description: '',
@@ -86,5 +98,8 @@ export const pokemonSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const { clearState } = pokemonSlice.actions
+
+// Other code such as selectors can use the imported `RootState` type
+export const selectCount = (state: RootState) => state.pokeapi.value
 
 export default pokemonSlice.reducer

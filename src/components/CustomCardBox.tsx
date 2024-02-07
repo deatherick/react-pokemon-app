@@ -1,7 +1,4 @@
-
-import React from 'react';
-
-const CustomCardBox = ({title, description}) => {
+const CustomCardBox = ({title, description} : {title:string, description:string}) => {
   return (
     <div className="bg-white shadow-md rounded-lg p-6 border border-black">
       <h2 className="text-xl font-bold mb-4 text-center">{title.toUpperCase() }</h2>

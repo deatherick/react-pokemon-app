@@ -1,4 +1,4 @@
-export function Layout(props) {
+export function Layout(props : { children: any }) {
 
     return (
         <main className="flex flex-col items-center justify-center  h-[calc(100vh-96px)] bg-gray-100">
