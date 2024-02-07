@@ -6,7 +6,7 @@ const POKEMON_ENDPOINT_RANDOM = 'https://pokeapi.co/api/v2/pokemon-species'
  */
 export const getRandomPokemonAsync = async () => {
     try {
-        const res = await fetch(`${POKEMON_ENDPOINT_RANDOM}/${Math.floor(Math.random() * 500)}`)
+        const res = await fetch(`${POKEMON_ENDPOINT_RANDOM}/${Math.floor(Math.random() * 500) + 1}`)
         if (!res.ok) throw new Error('Error fetching pokemon data')
         const data = await res.json()
         return data
@@ -17,7 +17,7 @@ export const getRandomPokemonAsync = async () => {
 
 export function getRandomPokemon() {
     try {
-        fetch(`${POKEMON_ENDPOINT_RANDOM}/${Math.floor(Math.random() * 500)}`).then(res => {
+        fetch(`${POKEMON_ENDPOINT_RANDOM}/${Math.floor(Math.random() * 500) + 1}`).then(res => {
             if (!res.ok) throw new Error('Error fetching pokemon data')
             res.json().then(data => {
                 console.log(data)
