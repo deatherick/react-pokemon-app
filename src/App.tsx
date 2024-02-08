@@ -8,7 +8,7 @@ import { BerryPage } from '@pages/BerryPage'
 
 function App() {
     return (
-      <Router>
+      <Router basename='/react-pokemon-app'>
           <Navbar />
           <Routes>
               <Route path="/" element={<HomePage />} />
