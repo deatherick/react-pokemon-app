@@ -55,12 +55,14 @@ const Navbar = () => {
 
         {/* Mobile Navigation Items */}
         {navItems.map(item => (
-          <li
-            key={item.id}
-            className='p-4 border-b rounded-xl hover:bg-[#00df9a] duration-300 hover:text-black cursor-pointer border-gray-600'
-          >
-            {item.text}
-          </li>
+          <Link to={item.path} key={item.id}>
+            <li
+              key={item.id}
+              className='p-4 border-b rounded-xl hover:bg-[#00df9a] duration-300 hover:text-black cursor-pointer border-gray-600'
+            >
+              {item.text}
+            </li>
+          </Link>
         ))}
       </ul>
     </div>
